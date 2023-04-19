@@ -9,11 +9,11 @@ from DATASET import RobotHand
 
 if __name__ == '__main__':
     dataset_train = RobotHand(
-        csv_file='C:/Users/USER/PycharmProjects/UniWork/Dataset/Image665/train_annotations_300_300/_annotations.csv',
-        root="C:/Users/USER/PycharmProjects/UniWork/Dataset/Image665/train_300_300")
+        csv_file='./Image665/train_annotations_300_300/_annotations.csv',
+        root="./Image665/train_300_300")
     dataset_valid = RobotHand(
-        csv_file='C:/Users/USER/PycharmProjects/UniWork/Dataset/Image665/valid_annotations_300_300/_annotations.csv',
-        root="C:/Users/USER/PycharmProjects/UniWork/Dataset/Image665/valid_300_300")
+        csv_file='./Image665/valid_annotations_300_300/_annotations.csv',
+        root="./Image665/valid_300_300")
 
     data_loader_train = torch.utils.data.DataLoader(
         dataset_train, batch_size=32, shuffle=True, num_workers=4,
@@ -49,5 +49,5 @@ if __name__ == '__main__':
         lr_scheduler.step()
         # evaluate on the valid dataset
         evaluate(model, data_loader_valid, device=device)
-        torch.save(model, "C:/Users/USER/PycharmProjects/UniWork/SSD_trainable_backbone_layers_2.pt")
-    torch.save(model, "C:/Users/USER/PycharmProjects/UniWork/ssd_" + str(num_epochs) + "_epochs" + ".pt")
+        torch.save(model, "./SSD_trainable_backbone_layers_2.pt")
+    torch.save(model, "./ssd_" + str(num_epochs) + "_epochs" + ".pt")
