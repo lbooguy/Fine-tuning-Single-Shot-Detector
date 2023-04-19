@@ -5,13 +5,13 @@ from torchvision.models.detection import SSD300_VGG16_Weights
 from torchvision.transforms.functional import to_pil_image
 from torchvision.utils import draw_bounding_boxes
 
-image_path = "C:/Users/USER/Pictures/1.jpg"
+image_path = "./1.jpg"
 img = Image.open(image_path)
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 model = torch.load(
-    "C:/Users/USER/PycharmProjects/UniWork/SSD_trainable_backbone_layers_2.pt")
+    "./SSD.pt")
 model.score_thresh = 0.5
 model = model.to('cpu')
 model.eval()
